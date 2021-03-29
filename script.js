@@ -1,8 +1,7 @@
 const startButton = document.querySelector(".start");
+const timeLeftSpan = document.querySelector("#clock");
 
-startButton.addEventListener("click",function(){
 
-})
 
 const questions = [
     {
@@ -52,17 +51,20 @@ const questions = [
     }, 
     
 ]
-
 console.log(questions);
 
-function chooseQuestion(){
-    var theQuestion = Math.floor(Math.random()*questions.length);
-
-}
-
-const timeLeftSpan = document.querySelector("#clock");
+var chosenQuestion =""
+var guessedAnswer = []
 const timeLeft = 10;
 var timer;
+var isGameRunning = false;
+
+
+
+// function chooseQuestion(){
+//     var theQuestion = Math.floor(Math.random()*questions.length);
+
+// }
 
 function startTimer() {
         clearInterval(timer);
@@ -74,6 +76,7 @@ function startTimer() {
             timeLeftSpan.textContent = timeLeft;
             // if time runs out , loss
             if (timeLeft < 1){
+                isGameRunning= false;
                 clearInterval(timer);
                 console.log("Lost!");
             }
