@@ -1,4 +1,5 @@
 console.log("****scores loaded");
+const retryButton =document.querySelector("#retry")
 
 const history = JSON.parse(localStorage.getItem("history"));
 
@@ -13,3 +14,7 @@ for (let i = 0; i < history.length; i++) {
 }
 
 document.querySelector(".scoreBoard").innerHTML = list;
+
+retryButton.addEventListener("click",function(){
+   document.querySelector("#retry");
+})
