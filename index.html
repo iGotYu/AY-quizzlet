@@ -4,30 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 <body>
     <header >Quizzlet
     <nav>
-        <p id="clock">Time Left:</p>
+        <p id="clock">Time Left: <span id="time">75</span></p>
     </nav>
     </header>
 
-    <main class="container">
-        <button class = "start">StartButton</button>
-        <div id="question">Question</div>
-        <div id="answer">
-            <ul>
-            <li><button class="buttons" id= "button1">Answer 1</button></li>
-            <li><button class="buttons" id= "button2">Answer 2</button></li>
-            <li><button class="buttons" id= "button3">Answer 3</button></li>
-            <li><button class="buttons" id= "button4">Answer 4</button></li>
-            </ul>
+    <main id="game">
+        <div id="start-screen">
+            <div id="message">Hello Lets play</div>
+            <button id = "start">StartButton</button>
         </div>
-
-        <button class= "scoreBoard"> ScoreBoard</button>
-            
-    </main>
+        <div id="question-screen"class="hide">
+            <div class="answer-title">Title</div>
+            <div class="answer-container">
+                <button class="answer answer1"></button>
+                <button class="answer answer2"></button>
+                <button class="answer answer3"></button>
+                <button class="answer answer4"></button>
+            </div>
+        </div>
+        <div id="end-screen" class="hide">
+            <a id= "scoreBoard" href="./score.html"> ScoreBoard</a>
+            <p>Score: <span id= "score"></span></p>
+            <p>Player Initials <input id="initials"/><button id="submit">Submit</button></p>
+    </div>
+        </main>
     
 
     <script src="script.js"></script>
