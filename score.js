@@ -1,5 +1,6 @@
 console.log("****scores loaded");
 const retryButton =document.querySelector("#retry")
+const clearButton = document.querySelector("#clearScores")
 
 const history = JSON.parse(localStorage.getItem("history"));
 
@@ -17,4 +18,8 @@ document.querySelector(".scoreBoard").innerHTML = list;
 
 retryButton.addEventListener("click",function(){
    document.querySelector("#retry");
+})
+
+clearButton.addEventListener("click",function(){
+    localStorage.clear();
 })

@@ -5,23 +5,26 @@ const questions = [
   {
     question: "When is the best time to see Cherry Blossoms?",
     answer1: "february",
+    correctAnswer: "may",
     answer2: "march",
     answer3: "april",
-    correctAnswer: "may",
+    
   },
   {
     question: "Which is these whales is the biggest?",
     answer1: "Orca",
     answer2: "Humpback",
-    answer3: "Beluga",
     correctAnswer: "Finback",
+    answer3: "Beluga",
+  
   },
   {
     question: "What is the tallest building?",
+    correctAnswer: "Burj Khalifa",
     answer1: "Shanghai Tower",
     answer2: "One World Trade Center",
     answer3: "Taipei 101",
-    correctAnswer: "Burj Khalifa",
+    
   },
   {
     question: "Which city has the largest population?",
@@ -63,7 +66,7 @@ answerButtons.forEach(function (ansBtn) {
   ansBtn.addEventListener("click", function (event) {
     console.log(event.target);
     var userGuess = event.target.textContent;
-    //create a seperate function to handle correct and incorrect answers
+    //create a separate function to handle correct and incorrect answers
     if (userGuess === questions[currentIndex].correctAnswer) {
       console.log("You Got it!");
       currentIndex++;
@@ -115,29 +118,29 @@ startButton.addEventListener("click", function () {
 console.log(questions);
 
 function endGame() {
-    //clear the timer
-    clearInterval(timer);
-    //show end screen
-    document.querySelector("#end-screen").classList.remove("hide");
-    //hide question container
-    gameEl.classList.add("hide");
-    //show the score
-    document.querySelector("#score").textContent = timeLeft;
-};
+  //clear the timer
+  clearInterval(timer);
+  //show end screen
+  document.querySelector("#end-screen").classList.remove("hide");
+  //hide question container
+  gameEl.classList.add("hide");
+  //show the score
+  document.querySelector("#score").textContent = timeLeft;
+}
 
-document.querySelector("#submit").addEventListener("click",function() {
-    //get the user input
-    const userInput = document.querySelector("#initials").value;
+document.querySelector("#submit").addEventListener("click", function () {
+  //get the user input
+  const userInput = document.querySelector("#initials").value;
 
-    //contruct the object
-    const historyEntry = {
-        user: userInput,
-        score: timeLeft
-    }
+  //contruct the object
+  const historyEntry = {
+    user: userInput,
+    score: timeLeft,
+  };
 
-    const history = JSON.parse(localStorage.getItem("history")) || [];
+  const history = JSON.parse(localStorage.getItem("history")) || [];
 
-    history.push(historyEntry);
+  history.push(historyEntry);
 
-    localStorage.setItem("history",JSON.stringify(history));
+  localStorage.setItem("history", JSON.stringify(history));
 });
